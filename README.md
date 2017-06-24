@@ -18,6 +18,23 @@ Or install it yourself as:
 
     $ gem install boop
 
+## Server
+
+The recommended hosting solution is:
+
+* [iwantmyname](https://iwantmyname.com) for DNS (integrates with
+  Netlify)
+* [Netlify](https://netlify.com) for hosting (continuous deployment from
+  GitHub; acquire + deploy a LetsEncrypt cert in one click)
+* [GitHub](https://github.com), [GitLab](https://gitlab.com), or
+  [Bitbucket](https://bitbucket.org) for hosting (Netlify supports
+  continuous deployment from these services)
+* [LetsEncrypt](https://letsencrypt.org) &mdash; Netlify handles this
+  for you very easily.
+
+It does not need to be a public repository, as long as Netlify can
+access it.
+
 ## Configuration
 
 * The directory `~/.boop` should be a git repository.
