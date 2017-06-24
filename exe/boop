@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+require 'boop'
+
+def print_usage!
+  warn "Usage:"
+  warn "  boop paste [NAME]"
+  warn "  boop html [NAME]"
+  warn
+  warn "Saves the contents of stdin to ~/.boop and does a `git push`."
+  exit 1
+end
+
+
+if ARGV.include?('--help') || ARGV.include?('-h') || ARGV.length > 2
+  print_usage!
+end
+
+if ENV['BOOP_URL'].nil? || ENV['BOOP_URL'].empty?
+  warn "Please define the BOOP_URL environment variable."
+  warn "(Set it to the URL pastes will be located under.)"
+  exit 1
+end
+
+command, name = ARGV[0..1]
+
+# Default to text paste.
+command ||= :paste
+
+boop = Boop.new(ENV['BOOP_URL'], "~/.boop")
+
+case command
+when :html, :paste
+  boop.send(command, name, $stdin.read)
+else
+  print_usage!
+end
