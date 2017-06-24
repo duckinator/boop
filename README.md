@@ -18,6 +18,12 @@ Or install it yourself as:
 
     $ gem install boop
 
+## Configuration
+
+* The directory `~/.boop` should be a git repository.
+* The environment variable `BOOP_URL` should be a URL that points to the
+  contents of the repository.
+
 ## Usage
 
 ```

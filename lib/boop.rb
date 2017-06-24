@@ -30,7 +30,6 @@ class Boop
     print_url(filename)
   end
 
-  # TODO: Have commit message contain /p/blah or /h/blah, instead of just "blah".
   def commit_and_push!(filename)
     Dir.chdir(@repo_dir) do
       `git add #{filename} >/dev/null`
