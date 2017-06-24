@@ -11,7 +11,6 @@ def print_usage!
   exit 1
 end
 
-
 if ARGV.include?('--help') || ARGV.include?('-h') || ARGV.length > 2
   print_usage!
 end
@@ -29,7 +28,7 @@ command ||= :paste
 
 boop = Boop.new(ENV['BOOP_URL'], "~/.boop")
 
-case command
+case command.to_sym
 when :html, :paste
   boop.send(command, name, $stdin.read)
 else
