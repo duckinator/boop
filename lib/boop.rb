@@ -34,7 +34,7 @@ class Boop
     Dir.chdir(@repo_dir) do
       `git add #{filename} >/dev/null`
       `git commit -m "Add paste: #{filename}" >/dev/null`
-      `git push >/dev/null`
+      `git push -q >/dev/null`
     end
   end
 
