@@ -32,9 +32,9 @@ class Boop
 
   def commit_and_push!(filename)
     Dir.chdir(@repo_dir) do
-      `git add #{filename} >/dev/null`
-      `git commit -m "Add paste: #{filename}" >/dev/null`
-      `git push -q >/dev/null`
+      `git add #{filename}`
+      `git commit -q -m "Add paste: #{filename}"`
+      `git push -q`
     end
   end
 
