@@ -31,6 +31,8 @@ boop = Boop.new(ENV['BOOP_URL'], "~/.boop")
 case command.to_sym
 when :html, :paste
   boop.send(command, name, $stdin.read)
+when :file
+  boop.file(File.basename(name), open(name).read)
 else
   print_usage!
 end

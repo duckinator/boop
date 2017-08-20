@@ -15,12 +15,20 @@ class Boop
     save(:html, name, contents)
   end
 
+  def file(name, contents)
+    save_file(name, contents)
+  end
+
   private
   def save(file_extension, name, contents)
-    name ||= SecureRandom.uuid.tr('-', '')
+    name ||= SecureRandom.uuid.tr('-i', '')
 
     filename = "#{name}.#{file_extension}"
 
+    save_file(filename, contents)
+  end
+
+  def save_file(filename, contents)
     path = File.join(@repo_dir, filename)
 
     File.open(path, 'w') { |f| f.write contents }
